@@ -1,0 +1,291 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family:sans-serif;
+}
+
+.topIcon {
+    display       : inline-block;
+    position      : fixed;       /* ボタン固定 */
+    bottom        : 20px;        /* 下から位置 */
+    right         : 20px;        /* 右から位置 */
+    padding       : 25px 25px;   /* 余白       */
+    background    : #000000;     /* 背景色     */
+    color         : #ffffff;     /* 文字色     */
+    opacity       : 0.5;         /* 透明度     */
+    border-radius : 50%;        /* 角丸       */
+    font-size     : 19.5pt;        /* 文字サイズ */
+    font-weight   : bold;        /* 太字       */
+    line-height   : 1.2em;       /* 行の高さ   */
+    letter-spacing: 2px;         /* 文字間隔   */
+    text-align    : center;      /* 文字位置   */
+    cursor        : pointer;     /* カーソル   */
+    z-index       : 999;         /* 重ね順位   */
+  }
+  
+.outline {
+  display        : inline-block;
+  color          : #ffffff;            /* 文字の色 */
+  font-size      : 20pt;               /* 文字のサイズ */
+  letter-spacing : 4px;                /* 文字間 */
+  text-shadow    : 
+       2px  2px 0px #000000,
+      -2px  2px 0px #000000,
+       2px -2px 0px #000000,
+      -2px -2px 0px #000000,
+       2px  0px 0px #000000,
+       0px  2px 0px #000000,
+      -2px  0px 0px #000000,
+       0px -2px 0px #000000;        /* 文字の影 */
+}
+  
+.topIcon:hover {
+    opacity       : 0.9;   /* カーソル時透明度 */
+  }
+
+
+.jumbotron-header {
+    position: relative;
+    height: 100vh;
+    /*text-align: center;*/
+    background-image: url("imgs/img01.png");
+    background-size: cover;
+}
+
+.red {
+    color: #FF8000;
+}
+
+.display-4 {
+    background-color: rgba(100,100,100,0.5);
+    display        : inline-block;
+    color          : #ffffff;            /* 文字の色 */
+    font-size      : 36pt;               /* 文字のサイズ */
+    padding:20px;
+    border-radius: 15px;
+}
+
+.sample1a {
+  display       : inline-block;        /* ブロック化              */
+  border-bottom : 4px dashed #FF8000;      /* 下線                    */
+}
+
+.jumbotron-c {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+}
+
+.jumbotron-c h4{
+      text-shadow    : 
+       2px  2px 1px #595959,
+      -2px  2px 1px #595959,
+       2px -2px 1px #595959,
+      -2px -2px 1px #595959,
+       2px  0px 1px #595959,
+       0px  2px 1px #595959,
+      -2px  0px 1px #595959,
+       0px -2px 1px #595959;        /* 文字の影 */
+}
+
+.header-p {
+    font-size: 17px;
+    text-shadow    : 
+       1px  1px 1px #000000,
+      -1px  1px 1px #000000,
+       1px -1px 1px #000000,
+      -1px -1px 1px #000000,
+       1px  0px 1px #000000,
+       0px  1px 1px #000000,
+      -1px  0px 1px #000000,
+       0px -1px 1px #000000;        /* 文字の影 */
+}
+
+
+
+.syoukai {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.myicon-img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border:2px solid white;
+}
+
+.myicon {
+    margin-top: 30px;
+}
+
+.myint {
+    margin: 30px;
+    text-align: left;
+    color:white;
+}
+
+.service {
+    padding: 100px 0 50px 0;
+}
+
+.title li{
+    list-style: none;
+    padding: 10px 20px;
+}
+
+.title h2{
+    text-align: center;
+    padding-bottom: 50px;
+    color          : #000000;            /* 文字の色 */
+    letter-spacing : 4px;                /* 文字間 */
+    text-shadow    : 
+           2px  2px 10px #cccccc,
+          -2px  2px 10px #cccccc,
+           2px -2px 10px #cccccc,
+          -2px -2px 10px #cccccc,
+           2px  0px 10px #cccccc,
+           0px  2px 10px #cccccc,
+          -2px  0px 10px #cccccc,
+           0px -2px 10px #cccccc;        /* 文字の影 */
+}
+
+.balloon {
+    text-align: center;
+    position : relative;                /* 指定した分だけ相対的に移動 */
+    padding: 10px;                        /* テキストの前後の余白 */
+    background-color: rgba(255, 166, 77, 0.57);       /* 背景色（透明度） */
+    width:100%;                          /* 吹き出し全体の幅 */
+    font-weight: bold;
+    color: #585858;
+
+}
+.balloon:after{
+  border-top: 20px solid rgba(255, 166, 77, 0.57);    /* 吹き出し口の高さ・色 */
+  border-left: 10px solid transparent;    /* 吹き出し口の幅１／２ */
+  border-right: 10px solid transparent;   /* 吹き出し口の幅１／２ */
+  bottom: -20px;                          /* 吹き出し口の位置調整 */
+  left : 3%;                      /* 吹き出し口の横位置 */
+  content: "";                       /* コンテンツの挿入 */
+  position: absolute;                /* 親要素を基準 */
+}
+
+.profile-background {
+    /*min-height: 300px;*/
+    background-image: url("imgs/yozora.png");
+    background-size: cover;
+    text-align: center;
+    position: relative;
+    padding:100px 0;
+}
+
+.title2 h2 {
+    text-align: center;
+    padding-bottom: 50px;
+    color          : #ffffff;            /* 文字の色 */
+    letter-spacing : 4px;                /* 文字間 */
+    text-shadow    : 
+       2px  2px 10px #000066,
+      -2px  2px 10px #000066,
+       2px -2px 10px #000066,
+      -2px -2px 10px #000066,
+       2px  0px 10px #000066,
+       0px  2px 10px #000066,
+      -2px  0px 10px #000066,
+       0px -2px 10px #000066;        /* 文字の影 */
+}
+
+.sample2a {
+  background : linear-gradient(transparent 50%, #F7BE81 65%);
+}
+
+.title h4 {
+    padding: 5px 0;
+}
+
+.title p {
+    padding:20px 0;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.balloon2 {
+    position : relative;                /* 指定した分だけ相対的に移動 */
+    padding: 20px;                        /* テキストの前後の余白 */
+    background-color: rgba(255, 166, 77, 0.57);       /* 背景色（透明度） */
+    width:100%;                          /* 吹き出し全体の幅 */
+    font-weight: bold;
+    color: #2E2E2E;
+
+}
+.balloon2:after{
+  border-top: 20px solid rgba(255, 166, 77, 0.57);    /* 吹き出し口の高さ・色 */
+  border-left: 10px solid transparent;    /* 吹き出し口の幅１／２ */
+  border-right: 10px solid transparent;   /* 吹き出し口の幅１／２ */
+  bottom: -20px;                          /* 吹き出し口の位置調整 */
+  left : 3%;                      /* 吹き出し口の横位置 */
+  content: "";                       /* コンテンツの挿入 */
+  position: absolute;                /* 親要素を基準 */
+}
+
+.qa p {
+    padding: 20px;
+}
+
+.qa ul {
+    padding: 10px 30px 0 30px;
+}
+
+.qa ul li p {
+    padding:0 10px;
+}
+
+.alert h6 {
+    padding-top: 5px;
+}
+
+.btn2 {
+    margin-top: 30px;
+}
+
+.contact {
+    background-color: #6E6E6E;
+    padding: 100px 0 50px 0;
+    color: #fff;
+    text-align: center;
+}
+
+.contact-title {
+    text-align: center;
+    padding-bottom: 50px;
+    letter-spacing : 4px;                /* 文字間 */
+    text-shadow    : 
+       2px  2px 10px #7f7f7f,
+      -2px  2px 10px #7f7f7f,
+       2px -2px 10px #7f7f7f,
+      -2px -2px 10px #7f7f7f,
+       2px  0px 10px #7f7f7f,
+       0px  2px 10px #7f7f7f,
+      -2px  0px 10px #7f7f7f,
+       0px -2px 10px #7f7f7f;        /* 文字の影 */
+}
+
+.copy {
+    padding: 60px 0 0 0;
+    margin-bottom: -30px;
+}
+
+.pp {
+    padding: 30px 0;
+}
+
+.fafafa {
+    text-align: left;
+}
+
+.fa-comment {
+    text-align: left;
+}

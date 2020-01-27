@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel = "stylesheet" href = "style.css" type ="text/css" >
+    <link rel="shortcut icon" href="imgs/fav.png">
+    <script src="https://kit.fontawesome.com/068ffe27ac.js" crossorigin="anonymous"></script>
+    <meta name="twitter:card" content="summary_large_image" /> <!--①-->
+    <meta name="twitter:site" content="@nevillog_722" /> <!--②-->
+    <meta property="og:url" content="https://taichiwatabe.github.io/programenter/" /> <!--③-->
+    <meta property="og:title" content="PrograMenter Biginners" /> <!--④-->
+    <meta property="og:description" content="プログラミング初心者の為のメンター企画" /> <!--⑤-->
+    <meta property="og:image" content="https://taichiwatabe.github.io/programenter/imgs/twitter.png" /> <!--⑥-->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>PrograMenter</title>
+  </head>
+  <body>
+    
+    <div id="topScroll" class="topIcon" onclick="goTop()">↑</div>
+  
+  <script type="text/javascript">
+    var vGoTop = {};
+    function goTop(){
+     
+      vGoTop["coef"] = 50;  // ←滑らか係数（大きいほど滑らか）
+      vGoTop["cnt"]  = 0;
+     
+      // --- 現在のスクロール位置取得 -----
+      var startX = document.body.scrollLeft || document.documentElement.scrollLeft;
+      var startY = document.body.scrollTop  || document.documentElement.scrollTop;
+     
+      // --- スクロールの単位計算 ---------
+      var moveSplitCnt = 0;
+      for(var i = 1; i <= vGoTop["coef"]; i++) {
+        moveSplitCnt += i * i;
+      }
+      vGoTop["unitH"] = startY / ( moveSplitCnt * 2 );
+     
+      vGoTop["nextX"] = startX;
+      vGoTop["nextY"] = startY;
+ 
+    // --- スクロール開始 ---------------
+    goTopLoop();
+    }
+    function goTopLoop(){
+     // ============================================================================
+     //  スクロール実行
+     // ============================================================================
+     
+      vGoTop["cnt"]++;
+     
+      // --- 次のスクロール位置計算 -------
+      var Coef = 0;
+      if(vGoTop["cnt"] <= vGoTop["coef"]){
+        Coef = vGoTop["cnt"];
+      }else{
+        Coef = ((vGoTop["coef"] * 2) + 1) - vGoTop["cnt"];
+      }
+      vGoTop["nextY"] = vGoTop["nextY"] - Math.round( vGoTop["unitH"] * ( Coef * Coef) );
+      if((vGoTop["cnt"] >= (vGoTop["coef"] * 2))||(vGoTop["nextY"] <= 0)){
+        vGoTop["nextY"] = 0;
+      }
+     
+      // --- スクロール実行 ---------------
+      window.scrollTo(vGoTop["nextX"], vGoTop["nextY"]);
+     
+      // --- 次のスクロールを設定 ---------
+      if(vGoTop["nextY"] <= 0){
+        clearTimeout(vGoTop["timer"]);                   // 終了：タイマクリア
+      }else{
+        vGoTop["timer"] = setTimeout("goTopLoop()",10);  // 次のループ
+      }
+     }
+    window.addEventListener("scroll", goTopDisp, false);
+    function goTopDisp(){
+     // ============================================================================
+     //  先頭表示時のボタン消去
+     // ============================================================================
+      var btn  = document.getElementById("topScroll");
+     
+      var nowY = document.body.scrollTop  || document.documentElement.scrollTop;
+      if(nowY ==0){
+        btn.style.display = "none";
+      }else{
+        btn.style.display = "";
+      }
+    }
+  </script>
+    
+    <header>
+        <div class="jumbotron jumbotron-header">
+          <div class = "jumbotron-c container">
+            
+            <h1 class="display-4"><span class = "red">P</span>rogra<span class = "red"><br>M</span>enter</h1>
+            <!--<h4><span class="sample1a">SNS・対面どちらでもOK!</span></h4>-->
+            <p class = "header-p">プログラミング初心者の為のメンター企画</p>
+            <hr color="#fff" class="my-4">
+            <!--<p class = "header-p">大学を中退し、エンジニアを目指している僕が、カリキュラム作成や基礎学習のお手伝いをします。</p>-->
+            <a class="btn btn-dark btn-lg btn2" href="#service" role="button">詳細を見る</a>
+          </div>
+        </div>
+    </header>
+    <div class = "container">
+      <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+          <img src="imgs/fav.png" width="30" height="30" class="d-inline-block align-top" alt="img">
+          <span class = "red">P</span>rogra<span class = "red">M</span>enter
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#"><i class="fas fa-home"></i> Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#service"><i class="far fa-list-alt"></i> Service</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#menter-int"><i class="fas fa-user"></i> Menter introduction</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      
+      <div class ="container service" id = "service">
+        <div class = "title">
+          <h2>こんな人に利用してほしい</h2>
+          <ul>
+            <li>
+              <p class="balloon">Progateを何周もしてしまっている</p>
+            </li>
+            <li>
+              <p class="balloon">プログラミングを始めたいけどどう学んでいけば良いかわからない</p>
+            </li>
+            <li>
+              <p class="balloon">質問できる環境がほしいけどあまりお金がない...</p>
+            </li>
+            <li>
+              <p class="balloon">対面でプログラミングを教わりたい！</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <hr>
+      
+      <div class = "container service">
+        <div class = "title">
+          <h2>サービス内容</h2>
+          <h4><span class="sample2a">SNS・対面で初心者の方のプログラミングに関する質問やエンジニアを目指す為のキャリア相談を２４時間受け付けます。</span></h4>
+          <p><span class = "bold">TwitterのDM・Slackで質問できる環境が欲しい！</span><br>基本的にまずTwitterのDMでご質問ください。その後ご質問によってSlackに切り替え(DMで解決するならばそのままDMで)、質問者様のご希望の媒体に変更いたします。</p>
+          <p><span class = "bold">対面で色々聞きたい！！</span><br>けど緊張するし、怪しいなぁ...と考えてしまう方も多いと思います。<br>ですが、このサービスは事業ではなく、あくまで個人の企画ですので<span class = "bold">カジュアル</span>にできればなと考えています。</p>
+        </div>
+        <div class="alert alert-danger" role="alert">
+          <h6><i class="fas fa-exclamation-circle"></i> 個人での企画故、また僕の技術力不足によりご質問にお答えできない場合がございます。あらかじめご了承ください</h6>
+        </div>
+        <div class="text-center">
+          <a class="btn btn-outline-dark btn-lg btn2" href="#contact" role="button">質問・メンター依頼をする</a>
+        </div>
+      </div>
+        
+      <hr>
+        
+      <div class = "container service">
+        <div class = "qa">
+          <h4 class = "balloon2">例えばどんなことを聞けるの？</h4>
+          <p>何故、僕個人での企画ですので僕が扱える技術に依存します。<br><span class = "bold">HTML・CSS・Bootstrap・Ruby・Ruby on rails・Git・Github</span>に関しては、プログラミング初心者の方にはお教えすることができる程度の知識はあると思うので、ご気軽に質問頂ければと思います。<br>ちなみにこのサイトも僕自身が作成しています。まぁ大したことはないですが技術力はこんな感じです。</p>
+          <h4 class = "balloon2">料金は？SNSでの質問に値段かかるの？</h4>
+          <p>SNSでの質問に関しては、<span class = "bold">無料</span>で質問をお受けいたします。<br>対面でのご相談・メンターの依頼は１時間で...５円くらい(笑)<br>いや無料で構わないのですが、当日カフェや飲食店を利用する為<span class = "bold">交通費</span>と<span class = "bold">お茶代</span>はご持参頂ければと思います。(僕のは僕で払います)</p>
+          <h4 class = "balloon2">なんでわざわざ無料でこんなことするの？目的は？</h4>
+          <p>何点か理由はあるのですが、この企画を発足した理由から箇条書きで書かせていただきます。</p>
+          <div class ="alert alert-warning">
+            <ul>
+              <li>
+                <p>迫さん・かみざとさんのTwitterを見て、未経験からエンジニアとして就職する際に人に教えた経験が＋になる事を知ったから</p>
+              </li>
+              <li>
+                <p>人に教える・育てるスキルが欲しいから</p>
+              </li>
+              <li>
+                <p>僕自身、MENTAにて同じような目的の講師の方と契約し、スピードをもって初心者を脱することができたから</p>
+              </li>
+              <li>
+                <p>今後、この人脈が活きるかもしれない</p>
+              </li>
+            </ul>
+          </div>
+          <p>細かく言えばもっとありますが、実は僕の方がめちゃくちゃメリットあるのでご質問して頂くだけでありがたいんです。さらに対面でのメンター依頼なんて頂けたらありがたすぎます。</p>
+        </div>
+        <div class="text-center">
+          <a class="btn btn-outline-dark btn-lg btn2" href="#contact" role="button">質問・メンター依頼をする</a>
+        </div>
+      </div>
+      </div>
+      <div class = "profile-background title2" id = "menter-int" >
+        <h2>Menter紹介</h2>
+        <div class ="container">
+          <hr color="#fff" class="my-4">
+          <div class = "row">
+            <div class = "col-md-6 myicon">
+              <img src = "imgs/myicon.png" alt = "myicon" class = "myicon-img">
+            </div>
+            <div class = "col-md-6">
+              <ul class ="myint bold">
+                <li class ="int">
+                  <p>名前：Taichi Watabe ( Twitter name : Neville )</p>
+                </li>
+                <li class ="int">
+                  <p>出身：神奈川県（現在も在住）</p>
+                </li>
+                <li class ="int">
+                  <p>経緯：Youtube・Twitterでプログラミングを知り、憧れのビジョンを見つけすぐに大学を中退し、現在はエンジニアとして就職を目指して勉強中です。</p>
+                </li>
+                <li class ="int">
+                  <p>メンター経験：対面での投資関係の元メンター・Twitterでのプログラミング関係</p>
+                </li>
+                <li class ="int">
+                  <p>スキル：HTML・CSS・Bootstrap・Ruby・Ruby on rails・Git</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class = "contact" id = "contact">
+          <div class = "container">
+            <h2 class = "contact-title">Contact</h2>
+            <hr color="#fff" class="my-4">
+            <p class = "bold pp">ご気軽にご相談・ご依頼ください！</p>
+            <a class="btn btn-primary  btn-lg rounded-circle " href="https://twitter.com/nevillog_722" role="button" ><i class="fab fa-twitter"></i></a>
+            <p class = "copy">&copy; 2020  PrograMenter Biginners</p>
+          </div>
+        </div>
+      </footer>
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
